@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # Local apps
     'products',
+    'cart',
 
     # Libraries
     'rest_framework',
@@ -136,3 +137,5 @@ STATICFILES_FINDERS = [
 # Config of the media folder
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+CART_SESSION_ID = 'cart'
