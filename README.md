@@ -5,21 +5,27 @@
 Shopping cart es una aplicación que le permite a los usuarios registrar productos en la aplicación, a los usuarios finales agregar productos a un carrito de compras y efectuar la orden de compra después de registrarse. Esta aplicación está siendo desarrollada con el framework Django y Django REST Framework.
 
 ## Requisitos de instalación
+
+```bash
 * Python versión = 3.8
 * PostgreSQL version >= 11
 * Instalar el administrador de entornos virtuales [pipenv)](https://pypi.org/project/pipenv/) 
+```
 
 ## Instalación
 
 - Clone el repositorio con el comando "git clone https://github.com/cmartinezbjmu/shopping_cart_grability.git"
 - Acceda al directorio del proyecto y ejecute "pipenv install" para instalar todas las dependecias del proyecto.
 - Cree un archivo .env en la raíz del proyecto con los siguientes datos
+
+```bash
   - SECRET_KEY=q!ywis$p!m8v1s*+n4qucn7^1lcl=9q_aj9hbd$=hkg2=4=!#t
   - DBNAME=shopping_cart_db
   - DBUSER=postgres
   - DBPASS=admin
   - DBHOST=127.0.0.1
   - DBPORT=5432
+```
 
 Nota: Los valores expuestos aquí son de ejemplo y deben cambiarse para evitar fallas de seguridad en la aplicación.
 
