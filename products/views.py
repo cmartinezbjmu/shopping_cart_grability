@@ -16,6 +16,7 @@ from .serializers import ProductsSerializer
 
 # Create your views here.
 
+
 class ProductsView(viewsets.ModelViewSet):
     """Products view."""
     serializer_class = ProductsSerializer
@@ -42,7 +43,8 @@ class ProductsView(viewsets.ModelViewSet):
     def update(self, request, pk=None, **kwargs):
         product = get_object_or_404(Product, id=pk)
         partial = kwargs.pop('partial', False)
-        serializer = ProductsSerializer(product, data=request.data, partial=partial)
+        serializer = ProductsSerializer(
+            product, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
         return Response(serializer.data)
