@@ -96,3 +96,11 @@ class Cart(object):
         self.session[settings.CART_SESSION_ID] = {}
         self.session.modified = True
         return self
+
+    def total_price(self):
+        # Total price cart
+        price = float()
+        for key, value in self.cart.items():
+            partial_price = float(value['quantity']) * float(value['price'])
+            price = price + partial_price
+        return price
