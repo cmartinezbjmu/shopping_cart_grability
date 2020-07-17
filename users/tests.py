@@ -40,7 +40,7 @@ class UsersTestCase(TestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
     
     def test_valid_user_login(self):
-        
+
         response = self.client.post(
             reverse('rest_register'),
             data=json.dumps(self.valid_user_register),
