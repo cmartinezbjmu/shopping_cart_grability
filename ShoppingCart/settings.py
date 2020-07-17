@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'users',
+    'orders',
 
     # Libraries
     'rest_framework',

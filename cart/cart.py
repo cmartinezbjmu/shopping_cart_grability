@@ -42,7 +42,7 @@ class Cart(object):
             for key, value in self.cart.items():
                 if key == str(product.id):
                     if (value['quantity'] + 1) > product.amount_avaliable:
-                        return "We do not have more stock for this product"
+                        return "Don't have more stock for this product"
                     else:
                         value['quantity'] = value['quantity'] + 1
                         newItem = False

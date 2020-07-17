@@ -7,6 +7,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+     ###### CART ######
     path('add/<int:pk>/',
          views.CartView.as_view({'post': 'item_add'}), name='card_add'),
     path('remove/<int:pk>/',
