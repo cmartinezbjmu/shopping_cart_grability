@@ -23,8 +23,11 @@ class OrderView(viewsets.ViewSet):
     
     def create_order(self, request):
         order = Orders(request)
-        response_create, status_code = order.order_create()
-        cart = Cart(request)
-        cart_list = cart.clear()
-        return Response({'detail': response_create}, status=status_code)
-        
+        response_stock, status_code_stock, flag = order.stock_validate()
+        if flag == False:
+            response_create, status_code = order.order_create()
+            cart = Cart(request)
+            cart_list = cart.clear()
+            return Response({'detail': response_create}, status=status_code)
+        else:
+            return Response({'detail': response_stock}, status=status_code_stock)

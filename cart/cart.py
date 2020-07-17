@@ -29,13 +29,17 @@ class Cart(object):
         newItem = True
         # Add product if not exist in the cart
         if str(product.id) not in self.cart.keys():
-            self.cart[product.id] = {
-                'product_id': id,
-                'name': product.name,
-                'quantity': 1,
-                'price': str(product.price),
-                'image': product.image.url
-            }
+            
+            if product.amount_avaliable == 0:
+                return "Don't have stock for this product"
+            else:
+                self.cart[product.id] = {
+                    'product_id': id,
+                    'name': product.name,
+                    'quantity': 1,
+                    'price': str(product.price),
+                    'image': product.image.url
+                }
         else:
             # Increment item and validate stock
             newItem = True

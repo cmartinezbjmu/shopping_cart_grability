@@ -40,6 +40,18 @@ class Orders(object):
         user = request.user
         self.user = user
     
+    def stock_validate(self):
+        flag = False
+        if len(self.cart.items()) > 0:
+            for key, value in self.cart.items():
+                product = get_object_or_404(Product, id=value['product_id'])
+                if product.amount_avaliable < value['quantity']:
+                    flag = True
+                    return 'This products it´s out of stock: ' + str(value['product_id']), status.HTTP_204_NO_CONTENT, flag
+            return 'Products with stock.', status.HTTP_200_OK, flag
+        else:
+            return 'You don´t have products in your shopping cart.', status.HTTP_204_NO_CONTENT, flag
+
     def order_create(self):
         # Create order
         if len(self.cart.items()) > 0:
@@ -50,7 +62,9 @@ class Orders(object):
 
             for key, value in self.cart.items():
                 product = get_object_or_404(Product, id=value['product_id'])
-                print(value)
+                product_amount_avaliable = product.amount_avaliable - value['quantity']
+                Product.objects.filter(id=value['product_id']).update(amount_avaliable=product_amount_avaliable)
+                
                 OrderItem.objects.create(
                     order = order,
                     product = product,
