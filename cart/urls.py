@@ -7,7 +7,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-     ###### CART ######
+    ###### CART ######
     path('add/<int:pk>/',
          views.CartView.as_view({'post': 'item_add'}), name='card_add'),
     path('remove/<int:pk>/',
@@ -20,4 +20,6 @@ urlpatterns = [
         'clear/', views.CartView.as_view({'get': 'cart_clear'}), name='cart_clear'),
     path(
         'detail/', views.CartView.as_view({'get': 'cart_detail'}), name='cart_detail'),
+    path(
+        'total_price/', views.CartView.as_view({'get': 'total_price'}), name='total_price'),
 ]

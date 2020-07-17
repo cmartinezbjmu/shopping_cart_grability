@@ -77,3 +77,9 @@ class CartView(viewsets.ViewSet):
     # Retrive list of items
     def cart_detail(self, request):
         return JsonResponse(request.session[settings.CART_SESSION_ID], status=status.HTTP_200_OK)
+
+    def total_price(self, request):
+        cart = Cart(request)
+        total_price = cart.total_price()
+        print(total_price)
+        return JsonResponse({'total_price': total_price}, status=status.HTTP_200_OK)
