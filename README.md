@@ -9,7 +9,7 @@ Shopping cart es una aplicación que le permite a los usuarios registrar product
 ```bash
 * Python versión = 3.8
 * PostgreSQL version >= 11
-* Instalar el administrador de entornos virtuales [pipenv)](https://pypi.org/project/pipenv/) 
+* Instalar el administrador de entornos virtuales 'pipenv'(https://pypi.org/project/pipenv/) 
 ```
 
 ## Instalación
@@ -29,7 +29,7 @@ Shopping cart es una aplicación que le permite a los usuarios registrar product
 
 Nota: Los valores expuestos aquí son de ejemplo y deben cambiarse para evitar fallas de seguridad en la aplicación.
 
-## Ejecutar la aplicación
+## Ejecute la aplicación
 
 Inicie el entorno virtual
 
