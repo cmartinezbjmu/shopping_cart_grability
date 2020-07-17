@@ -41,6 +41,7 @@ class Orders(object):
         self.user = user
     
     def stock_validate(self):
+        # Validate stock of products
         flag = False
         if len(self.cart.items()) > 0:
             for key, value in self.cart.items():
