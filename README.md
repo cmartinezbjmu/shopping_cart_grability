@@ -218,3 +218,15 @@ El carro de compras se implementó guardando la información que el usuario regi
   curl -X GET \
     http://127.0.0.1:8000/api/v1/orders/
   ```
+  
+  ### Pruebas
+  
+  - #### Pruebas unitarias
+  ```bash
+  python manage.py test
+  ```
+  La aplicación cuenta con pruebas unitarias sobre cada una de las aplicaciones, se pueden ejecutar con este comando
+  
+  - #### Colección de Postman
+  
+  Se creó una colección de Postman que permite ejecutar pruebas directamente desde la aplicación, puede importarlo usando el siguiente [link] (https://www.getpostman.com/collections/bf1a8121f180a8fcb662)
