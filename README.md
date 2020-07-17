@@ -2,28 +2,34 @@
 
 
 
-Shopping cart es una aplicación que le permite a los usuarios agregar productos a un carrito de compras y efectuar la orden de compra después de registrarse. Esta aplicación es desarrollada con Django.
+Shopping cart es una aplicación que le permite a los usuarios registrar productos en la aplicación, a los usuarios finales agregar productos a un carrito de compras y efectuar la orden de compra después de registrarse. Esta aplicación está siendo desarrollada con el framework Django y Django REST Framework.
 
 ## Requisitos de instalación
-* Python versión >= 3.8
+
+```bash
+* Python versión = 3.8
 * PostgreSQL version >= 11
-* Instalar el administrador de entornos virtuales [pipenv)](https://pypi.org/project/pipenv/) 
+* Instalar el administrador de entornos virtuales 'pipenv'(https://pypi.org/project/pipenv/) 
+```
 
 ## Instalación
 
-- Debe clonar el repositorio con el comando "git clone https://github.com/cmartinezbjmu/shopping_cart_grability.git"
-- Acceder al directorio del proyecto y ejecutar "pipenv install" para instalar todas las dependecias.
-- Crear un archivo .env en la raíz del proyecto con los siguientes datos
+- Clone el repositorio con el comando "git clone https://github.com/cmartinezbjmu/shopping_cart_grability.git"
+- Acceda al directorio del proyecto y ejecute "pipenv install" para instalar todas las dependecias del proyecto.
+- Cree un archivo .env en la raíz del proyecto con los siguientes datos
+
+```bash
   - SECRET_KEY=q!ywis$p!m8v1s*+n4qucn7^1lcl=9q_aj9hbd$=hkg2=4=!#t
   - DBNAME=shopping_cart_db
   - DBUSER=postgres
   - DBPASS=admin
   - DBHOST=127.0.0.1
   - DBPORT=5432
+```
 
-Nota: Los valores expuestos aquí deben cambiarse para evitar fallas de seguridad en la aplicación.
+Nota: Los valores expuestos aquí son de ejemplo y deben cambiarse para evitar fallas de seguridad en la aplicación.
 
-## Ejecutar la aplicación
+## Ejecute la aplicación
 
 Inicie el entorno virtual
 
@@ -37,7 +43,7 @@ Ejecute las migraciones en la base de datos
 python manage.py migrate
 ```
 
-Finalmente, ejecute la aplicación
+Finalmente, inicie la aplicación
 
 ```bash
 python manage.py runserver
@@ -65,7 +71,7 @@ python manage.py runserver
         }'
   ```
 
-- Login
+- #### Login
 
   Este endpoint permite realizar la autenticación de un usuario registrado. A continuación relaciono un ejemplo para el consumo:
 
@@ -81,7 +87,7 @@ python manage.py runserver
 
   Posteriormente le retornará un Token de autenticación con el cual podrá ejecutar su orden de compra en el carrito de compras.
 
-- Logout
+- #### Logout
 
   Este endpoint permite cerrar sesión en la aplicación. A continuación relaciono un ejemplo para el consumo:
 
@@ -92,7 +98,7 @@ python manage.py runserver
 
 ###Productos
 
-- Agregar un producto
+- #### Agregar un producto
 
   Este endpoint le permite agregar un producto con los campos de nombre, precio, cantidad disponible y una imagen del producto. A continuación relaciono un ejemplo para el consumo:
 
@@ -212,3 +218,14 @@ El carro de compras se implementó guardando la información que el usuario regi
   curl -X GET \
     http://127.0.0.1:8000/api/v1/orders/
   ```
+  
+### Pruebas
+   
+- #### Pruebas unitarias
+  La aplicación cuenta con pruebas unitarias sobre cada una de las aplicaciones, se pueden ejecutar con este comando
+  ```bash
+  python manage.py test
+  ```
+
+- #### Colección de Postman
+  Se creó una colección de Postman que permite ejecutar pruebas directamente desde la aplicación, puede importarlo usando el siguiente [link] (https://www.getpostman.com/collections/bf1a8121f180a8fcb662)
